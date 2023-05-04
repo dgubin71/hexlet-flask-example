@@ -1,0 +1,22 @@
+<div class = "header">
+  {% if user.name =='' %}
+       <label class="like_h1">New castomer</label>
+  {% elif user.name=='Login' %}
+       <label class="like_h1">SIGN UP</label>
+  {% else %}
+       <label class="like_h1">Edit {{user.name}}</label>
+  {% endif %}
+</div>
+<label class="castomer_name">
+  <label class="h2_name">Name</label>
+  {% if user.name=='Login' %}
+      <input class ="name_field" type="text" name="name" placeholder ="{{ errors['name'] }}" value="">
+  {% else %}
+      <input class ="name_field" type="text" name="name" placeholder ="{{ errors['name'] }}" value="{{ user.name |default('')}}">
+  {% endif %}
+  </label>
+
+<label class="castomer_email">
+  <label class="h2_email">Email</label>
+  <input class="email_field" type="email" required name="email" placeholder ="for@example.com" value="{{ user.email |default('') }} {{ errors['email'] }}">
+</label>

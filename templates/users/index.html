@@ -1,0 +1,12 @@
+{% extends 'users/layout_for_row.html' %}
+
+{% block content %}
+{% for name in names %}
+
+  <div class="row_table">
+     <a class = "id_style" href = "{{ name['id'] }}">  {{name['id']}} </a>
+     <label class = "name_style"> {{name['name']}} </label>
+     <label class = "email_style">{{name['email']}}</label>
+  </div>
+{% endfor %}
+{% endblock %}

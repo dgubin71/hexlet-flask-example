@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Castomers</title>
+    <link type="text/css" href="{{url_for('static', filename ='castomers.css')}}" rel="stylesheet">
+  </head>
+  <body>
+  <main_frame>
+
+{% if messages %}
+
+   {% for  message in messages %}
+        {% if message[0]=='success'%}
+        <div class="message_ok">
+          {{ message[1] }}
+            <form action="{{url_for('find_users')}}" method="get">
+                <input class="x_btn_ok" type="submit" value="+">
+            </form>
+
+        </div>
+        {% else %}
+        <div class="message_warning">
+         {{ message[1] }}
+            <form action="{{url_for('find_users')}}" method="get">
+                <input class="x_btn_warning" type="submit" value="+">
+            </form>
+        </div>
+        {% endif %}
+   {% endfor %}
+
+{% endif %}
+<!--  <form action="/users/" method="get">-->
+  <div class="search_form">
+     <form action="{{url_for('users_new')}}" method = "get>">
+           <input class="cross_add" type="submit" value="+">
+      </form>
+     <form action="{{url_for('find_users')}}" method="get">
+          <label class="like_h1">Customers</label>
+          <input class="search_field" type="search" name="term" value="{{ search }}">
+          <input class="search_btn" type="submit" value="Search">
+     </form>
+  </div>
+
+  <div class="head_table">
+     <label class = "id_style">ID</label>
+     <label class = "name_style">NAME</label>
+     <label class = "email_style">EMAIL</label>
+  </div>
+
+{% block content %}
+
+{% endblock %}
+
+ <form action="{{ url_for('login_user' )}}" method="post">
+        <input  type="submit" value="logout">
+</form>
+  </body>
+
+ </main_frame>
+</html>

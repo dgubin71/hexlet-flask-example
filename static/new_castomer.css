@@ -1,0 +1,190 @@
+/* NewCastomer */
+@font-face {
+	font-family: "Roboto Regular";
+	src: url("../fonts/Roboto-Regular.woff2");
+}
+
+@font-face {
+	font-family: "Inter Regular";
+	src: url("../fonts/Inter-Regular.ttf");
+}
+
+@font-face {
+	font-family: "Inter Bold";
+	src: url("../fonts/Inter-Bold.ttf");
+}
+body{
+display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin-top: 0;
+  background-color:#767373;
+}
+.main_frame{
+    position: relative;
+    width: 478px;
+    height: 334px;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+
+/* Background Main */
+
+   background: #C4BCBC;
+   border-radius: 10px;
+}
+.header {
+   position: absolute;
+   width: 402px;
+   height: 68px;
+   left: 36px;
+   top: 10px;
+
+/* Magenta baground */
+
+   background: #2F808B;
+   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+   border-radius: 10px;
+}
+.like_h1{
+
+    position: absolute;
+    width: 159px;
+    height: 28px;
+    left: calc(50% - 159px/2 - 0.5px);
+    top: 23px;
+/* H1 Roboto */
+
+   font-family: "Roboto Regular", sans-serif;
+   font-style: normal;
+   font-weight: 400;
+   font-size: 24px;
+   line-height: 28px;
+   display: flex;
+   align-items: flex-end;
+   text-align: center;
+   color: #000000;
+}
+.castomer_name {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   padding: 6px 14px;
+   gap: 16px;
+   position: absolute;
+   width: 375px;
+   height: 50px;
+   left: 36px;
+   top: 95px;
+
+   background: #D9D9D9;
+   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+   border-radius: 10px;
+}
+
+.h2_name{
+   width: 57px;
+   height: 24px;
+   padding-left: 10px;
+
+/* Head H2 */
+
+   font-family: "Inter Regular", sans-serif;
+   font-style: normal;
+   font-weight: 700;
+   font-size: 20px;
+   line-height: 24px;
+
+   color: #000000;
+}
+.h2_email{
+   width: 57px;
+   height: 24px;
+   padding-left: 10px;
+
+/* Head H2 */
+
+   font-family: "Inter Regular", sans-serif;
+   font-style: normal;
+   font-weight: 700;
+   font-size: 20px;
+   line-height: 24px;
+
+   color: #000000;
+}
+
+.name_field {
+   box-sizing: border-box;
+   width: 299px;
+   height: 38px;
+   padding-left: 5px;
+   background: #D9D9D9;
+   border: 1px solid #000000;
+   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+   border-radius: 16px;
+   text-align: left;
+}
+
+.castomer_email {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   padding: 6px 14px;
+   gap: 16px;
+   position: absolute;
+   width: 375px;
+   height: 50px;
+   left: 36px;
+   top: 173px;
+
+   background: #D9D9D9;
+   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+   border-radius: 10px;
+}
+.email_field{
+   box-sizing: border-box;
+   width: 299px;
+   height: 38px;
+   padding-left: 5px;
+   background: #D9D9D9;
+   border: 1px solid #000000;
+   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+   border-radius: 16px;
+   text-align: left;
+}
+
+.footer {
+   position: absolute;
+   width: 402px;
+   height: 68px;
+   left: calc(50% - 402px/2);
+   top: 259px;
+
+/* Magenta baground */
+
+   background: #2F808B;
+   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+   border-radius: 10px;
+}
+.btn_add{
+   position: absolute;
+   width: 180px;
+   height: 44px;
+   left: calc(50% - 180px/2);
+   top: 13px;
+
+   background: #389E9E;
+   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+   border-radius: 16px;
+
+   font-family: "Inter Bold", sans-serif;
+   font-style: normal;
+   font-weight: 700;
+   font-size: 20px;
+   color: #4B4646;
+}

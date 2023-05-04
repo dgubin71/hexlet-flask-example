@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shipment today</title>
+    <link type="text/css" href="{{url_for('static', filename ='show_mobile.css')}}" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="body">
+  <div class = "header">
+  </div>
+  <h3 class = "head_h3">Shipments today</h3>
+  {% for name in names %}
+  <div class=row_delivery>
+    <label class="order_number">123456</label>
+    <label class='company'>{{ name['name'] }}</label>
+    <label class='from'>{{name['email']}}</label>
+  </div>
+  {% endfor %}
+</div>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+.body {
+width: 320px;
+height: 568px;
+background: #F9F9F9;
+}
+.header{
+  position: absolute;
+width: 320px;
+height: 110px;
+left: 0px;
+top: 0px;
+background: #061946;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.head_h3{
+  position: absolute;
+width: 128px;
+height: 19px;
+left: 95px;
+top: 95px;
+
+  font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 19px;
+text-align: center;
+
+color: #000000;
+}
+
+.row_delivery{
+  position: absolute;
+width: 320px;
+height: 121px;
+left: 5px;
+top: 141px;
+background: #FFFFFF;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 0px;
+}
+.order_number {
+  position: absolute;
+width: 41px;
+height: 14px;
+left: 21px;
+top: 11px;
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 14px;
+color: #23CDC3;
+}
+
+.company{
+  position: absolute;
+width: 93px;
+height: 19px;
+left: 105px;
+top: 11px;
+
+/* Head H3 */
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 19px;
+text-align: center;
+
+/* Magenta|600 */
+
+color: #147670;
+}
+
+.from {
+  position: absolute;
+width: 46px;
+height: 14px;
+left: 21px;
+top: 42px;
+
+/* Paragrad Regular */
+
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 14px;
+/* identical to box height */
+
+
+color: #000000;}

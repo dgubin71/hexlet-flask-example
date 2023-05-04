@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login </title>
+    <link type="text/css" href="{{url_for('static', filename ='login.css')}}" rel="stylesheet">
+</head>
+<body>
+<div class = "main_frame">
+<form action="{{ url_for('login_user') }}" method="post">
+
+    {% include "users/post.html" %}
+
+    <div class="footer">
+        <input class="btn_login" type="submit" value="Login">
+    </div>
+</form>
+</div>
+</body>
