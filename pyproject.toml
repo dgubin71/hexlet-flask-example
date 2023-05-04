@@ -9,6 +9,7 @@ packages = [{include = "hexlet_flask_example"}]
 [tool.poetry.dependencies]
 python = "^3.10"
 Flask = "^2.2.3"
+gunicorn = "^20.1.0"
 
 
 [build-system]

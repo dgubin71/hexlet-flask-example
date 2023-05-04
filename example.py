@@ -212,4 +212,3 @@ def check_login(login):
         if item_user['email'] == login:
             return True
     return False
-
