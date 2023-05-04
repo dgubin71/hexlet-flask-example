@@ -6,8 +6,6 @@ from flask import Flask, render_template, request, redirect, url_for, flash, get
 app = Flask(__name__, template_folder='templates')
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
-users = json.load(open('templates/users/users.json'))
-
 @app.route('/')
 def index():
     if session.get('user'):
