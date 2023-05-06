@@ -14,15 +14,16 @@
 	src: url("../fonts/Inter-Bold.ttf");
 }
 body{
-display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  margin-top: 0;
-  background-color:#767373;
+position: relative;
+width: 320px;
+height: 568px;
+
+/* Back dark */
+
+background: #767373;
 }
 .main_frame{
-    position: relative;
+    position: absolute;
     width: 320px;
     height: 318px;
     left: 0px;
@@ -53,19 +54,17 @@ display: flex;
     left: calc(50% - 214px/2);
     top: 126px;
 /* H1 Roboto */
-    font-family: 'Roboto Regular',sans-serif;
+    font-family: "Roboto Regular",sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
-    line-height: 28px;
-    display: flex;
-    align-items: flex-end;
+
     text-align: center;
 /* Head H1 color */
    color: #171A56;
    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-.castomer_name {
+.customer_name {
     box-sizing: border-box;
     position: absolute;
     width: 318px;
@@ -82,25 +81,25 @@ display: flex;
 
 .h2_name{
    position: absolute;
-width: 61px;
-height: 24px;
-left: calc(50% - 61px/2 - 1.5px);
-top: 25px;
+   width: 61px;
+   height: 24px;
+   left: calc(50% - 61px/2 - 1.5px);
+   top: 25px;
 
 /* Head H2 */
 
-font-family: "Inter Regular",sans-serif;
-font-style: normal;
-font-weight: 700;
-font-size: 20px;
-line-height: 24px;
-display: flex;
-align-items: flex-end;
-text-align: center;
+   font-family: "Inter Regular",sans-serif;
+   font-style: normal;
+   font-weight: 700;
+   font-size: 20px;
+   line-height: 24px;
+   display: flex;
+   align-items: flex-end;
+   text-align: center;
 
 /* Back dark */
 
-color: #767373;
+   color: #767373;
 }
 .h2_email{
    position: absolute;
@@ -137,7 +136,7 @@ color: #767373;
    border-radius: 10px;
 }
 
-.castomer_email {
+.customer_email {
    box-sizing: border-box;
    position: absolute;
    width: 318px;
