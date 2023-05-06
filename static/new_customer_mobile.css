@@ -14,11 +14,14 @@
 	src: url("../fonts/Inter-Bold.ttf");
 }
 body{
+min-height: 100vh;
+min-height: calc(var(--vh, 1vh) * 100);
 left: 0px;
 top: 0px;
 width: 320px;
 height: 568px;
-
+align-items: center;
+justify-content: center;
 /* Back dark */
 
 background: #767373;
