@@ -1,10 +1,12 @@
 import json
+from user_agents import parse
 from flask import Flask, render_template, request, redirect, url_for, flash, get_flashed_messages, session
 
 
 # Это callable WSGI-приложение
 app = Flask(__name__, template_folder='templates')
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+
 
 @app.route('/')
 def index():
@@ -79,13 +81,21 @@ def find_users():
 
 @app.route('/users/new')
 def users_new():
+#   получаем   user agent для определения типа браузера
+    ua_string = request.headers.get('User-Agent')  #  получаем строку user agent
+    user_agent = parse(ua_string)
+    if user_agent.is_mobile:
+        template_for_new = 'users/new_mobile.html'   #  используем шаблон для мобильного
+    else:
+        template_for_new = 'users/new.html' #  используем шаблон для десктопа
+
     user = {'name': '',
             'email': ''
             }
     errors = {}
 
     return render_template(
-        'users/new.html',
+        template_for_new,    #'users/new.html',
         user=user,
         errors=errors
     )

@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Add new castomer </title>
-    <link type="text/css" href="{{url_for('static', filename ='new_castomer.css')}}" rel="stylesheet">
+    <link type="text/css" href="{{url_for('static', filename ='new_castomer_mobile.css')}}" rel="stylesheet">
 </head>
 <body>
 <div class = "main_frame">
 <form action="{{ url_for('users_post')}}" method="post">
 
-    {% include "users/post.html" %}
+    {% include "users/post_mobile.html" %}
 
     <div class="footer">
         <input class="btn_add" type="submit" value="Add">
