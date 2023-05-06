@@ -13,7 +13,6 @@
 	font-family: "Inter Bold";
 	src: url("../fonts/Inter-Bold.ttf");
 }
-body{
 display: flex;
   align-items: center;
   justify-content: center;
@@ -38,6 +37,7 @@ display: flex;
    background: #C4BCBC;
    border-radius: 10px;
 }
+
 .header {
    position: absolute;
    width: 402px;
