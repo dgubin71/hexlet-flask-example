@@ -1,9 +1,10 @@
 <div class = "header">
-       <label class="like_h1">NEW CUSTOMER</label>
+   <!--    <label class="like_h1">NEW CUSTOMER</label>   -->
+    <label class="like_h1">{{  header }} </label>
 </div>
 <label class="customer_name">
-      <input class ="name_field" type="text" name="name" placeholder ="NAME" value="{{ user.name |default('')}}">
+      <input class ="name_field" type="text" name="name" placeholder ="{{ placeholder.name }}" value="{{ user.name |default('')}}">
 </label>
 <label class="customer_email">
-  <input class="email_field" type="email" required name="email" placeholder ="EMAIL for@example.com" value="{{ user.email |default('') }} {{ errors['email'] }}">
+  <input class="email_field" type="email" required name="email" placeholder ="{{ placeholder.email }}"  value="{{ user.email |default('') }} {{ errors['email'] }}">
 </label>

@@ -1,3 +1,4 @@
+/* Login */
 @font-face {
 	font-family: "Roboto Regular";
 	src: url("../fonts/Roboto-Regular.woff2");
@@ -56,17 +57,17 @@ background: #767373;
    border-radius: 10px;
 }
 .like_h1{
-    /* NEW CUSTOMER */
+    /* Enter login & password */
     position: absolute;
     display: flex;
-    width: 214px;
+    width: calc(100vw - 10px);
     height: 28px;
 /* H1 Roboto */
     font-family: "Roboto Regular",sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
-
+    justify-content: center;
     text-align: center;
 /* Head H1 color */
    color: #171A56;
@@ -112,7 +113,7 @@ background: #767373;
 }
 .name_field::placeholder {
 
-   width: 61px;
+   width: calc(100vw - 46px);
    height: 24px;
 /* Head H2 */
    font-family: "Inter Regular",sans-serif;
@@ -165,7 +166,7 @@ background: #767373;
 }
 .email_field::placeholder{
 
-   width: 200px;
+   width: calc(100vw - 46px);
    height: 19px;
 
 /* table text */
@@ -173,7 +174,7 @@ background: #767373;
    font-family: "Inter Regular",sans-serif;
    font-style: normal;
    font-weight: 400;
-   font-size: 16px;
+   font-size: 20px;
    display: flex;
    align-items: flex-end;
    text-align: center;
@@ -197,7 +198,7 @@ background: #767373;
    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
    border-radius: 10px;
 }
-.btn_add{
+.btn_login{
    box-sizing: border-box;
    position: relative;
    width: 200px;

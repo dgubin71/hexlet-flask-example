@@ -15,11 +15,22 @@ def index():
             flash('You connect as' + session['user'] + ' succes', 'success')
             return redirect(url_for("find_users"))
     session['user'] = ""
-    user = {"name": "Login", "email": "Enter email"}
+    user = {"name": "", "email":""}
+    placeholder = {"name": "LOGIN", "email":"PASSWORD"}
     errors = {}
+    header = "Enter LOGIN & PASSWORD"
+    #   получаем   user agent для определения типа браузера
+    ua_string = request.headers.get('User-Agent')  # получаем строку user agent
+    user_agent = parse(ua_string)
+    if user_agent.is_mobile:
+        template_for_login = 'users/login_mobile.html'  # используем шаблон для мобильного
+    else:
+        template_for_login = 'users/login.html'  # используем шаблон для десктопа
     return render_template(
-        'users/login.html',
+         template_for_login,    #'users/login.html',
          user=user,
+         header=header,
+         placeholder = placeholder,
          errors=errors
     )
 
@@ -81,22 +92,26 @@ def find_users():
 
 @app.route('/users/new')
 def users_new():
-#   получаем   user agent для определения типа браузера
-    ua_string = request.headers.get('User-Agent')  #  получаем строку user agent
+    #   получаем   user agent для определения типа браузера
+    ua_string = request.headers.get('User-Agent')  # получаем строку user agent
     user_agent = parse(ua_string)
     if user_agent.is_mobile:
-        template_for_new = 'users/new_mobile.html'   #  используем шаблон для мобильного
+        template_for_new = 'users/new_mobile.html'  # используем шаблон для мобильного
     else:
-        template_for_new = 'users/new.html' #  используем шаблон для десктопа
+        template_for_new = 'users/new.html'  # используем шаблон для десктопа
 
     user = {'name': '',
             'email': ''
             }
     errors = {}
-
+    header = "NEW CUSTOMER"
+    placeholder = {'name': 'NAME',
+                   'email': 'EMAIL for@example.com'}
     return render_template(
         template_for_new,    #'users/new.html',
         user=user,
+        header = header,
+        placeholder = placeholder,
         errors=errors
     )
 
