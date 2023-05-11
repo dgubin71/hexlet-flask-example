@@ -14,30 +14,31 @@ def index():
         if check_login(session['user']):
             flash('You connect as' + session['user'] + ' succes', 'success')
             return redirect(url_for("find_users"))
-    session['user'] = ""
-    user = {"name": "", "email":""}
-    placeholder = {"name": "LOGIN", "email":"PASSWORD"}
-    errors = {}
-    header = "Enter LOGIN & PASSWORD"
-    #   получаем   user agent для определения типа браузера
-    ua_string = request.headers.get('User-Agent')  # получаем строку user agent
-    user_agent = parse(ua_string)
-    if user_agent.is_mobile:
-        template_for_login = 'users/login_mobile.html'  # используем шаблон для мобильного
     else:
-        template_for_login = 'users/login.html'  # используем шаблон для десктопа
-    return render_template(
-         template_for_login,    #'users/login.html',
-         user=user,
-         header=header,
-         placeholder = placeholder,
-         errors=errors
+        session['user'] = ""
+        user = {"name": "", "email":""}
+        placeholder = {"name": "LOGIN", "email":"PASSWORD"}
+        errors = ""
+        header = "Enter LOGIN & PASSWORD"
+         #   получаем   user agent для определения типа браузера
+        ua_string = request.headers.get('User-Agent')  # получаем строку user agent
+        user_agent = parse(ua_string)
+        if user_agent.is_mobile:
+              template_for_login = 'users/login_mobile.html'  # используем шаблон для мобильного
+        else:
+               template_for_login = 'users/login.html'  # используем шаблон для десктопа
+        return render_template(
+        template_for_login,    #'users/login.html',
+        user=user,
+        header=header,
+        placeholder = placeholder,
+        errors=errors
     )
 
 @app.post('/login')
 def login_user():
     session.clear()
-    errors = {}
+    errors = ""
     user = {}
     login = request.form.get('email')
     if check_login(login):
@@ -45,14 +46,25 @@ def login_user():
          flash('login as '+ session['user'] +'  is succes', 'success')  # 'success')#
          return redirect(url_for('find_users'), code=302)
     else:
-          user['name'] = "Login"
-          user['email'] = ""
-          errors['name'] = ""
-          errors['email'] = "Enter email"
-          return render_template(
-                'users/login.html',
-                 user = user,
-                 errors = errors)
+        session['user'] = ""
+        user = {"name": "", "email": ""}
+        placeholder = {"name": "LOGIN", "email": "PASSWORD"}
+        errors = "Can't find login or password"
+        header = "Enter LOGIN & PASSWORD"
+        #   получаем   user agent для определения типа браузера
+        ua_string = request.headers.get('User-Agent')  # получаем строку user agent
+        user_agent = parse(ua_string)
+        if user_agent.is_mobile:
+            template_for_login = 'users/login_mobile.html'  # используем шаблон для мобильного
+        else:
+            template_for_login = 'users/login.html'  # используем шаблон для десктопа
+        return render_template(
+            template_for_login,  # 'users/login.html',
+            user=user,
+            header=header,
+            placeholder=placeholder,
+            errors=errors)
+
 
 @app.route('/courses/<id>')
 def courses(id):
@@ -81,11 +93,17 @@ def find_users():
     if term == None: term =''
     filtered_users = list(filter(lambda s: s['name'].startswith(term) != 0, users))
     messages = get_flashed_messages(with_categories=True)
+    ua_string = request.headers.get('User-Agent')  # получаем строку user agent
+    user_agent = parse(ua_string)
+    if user_agent.is_mobile:
+        template_for_find_user = 'users/customers_row_mobile.html'  # используем шаблон для мобильного
+    else:
+        template_for_find_user = 'users/index.html'  # используем шаблон для десктопа
+
     return render_template(
-          'users/index.html',
-         #'users/show_mobile.html',
-         names = filtered_users,
-         messages = messages,
+         template_for_find_user, #'users/index.html', #'users/show_mobile.html',
+         names=filtered_users,
+         messages=messages,
          search=term,
 
     )
@@ -110,8 +128,8 @@ def users_new():
     return render_template(
         template_for_new,    #'users/new.html',
         user=user,
-        header = header,
-        placeholder = placeholder,
+        header=header,
+        placeholder=placeholder,
         errors=errors
     )
 
@@ -128,10 +146,21 @@ def users_post():
     errors = validate(user)
 
     if errors:
+        ua_string = request.headers.get('User-Agent')  # получаем строку user agent
+        user_agent = parse(ua_string)
+        header = "NEW CUSTOMER"
+        placeholder = {'name': 'NAME',
+                       'email': 'EMAIL for@example.com'}
+        if user_agent.is_mobile:
+            template_for_new = 'users/new_mobile.html'  # используем шаблон для мобильного
+        else:
+            template_for_new = 'users/new.html'  # используем шаблон для десктопа
         return render_template(
-          'users/new.html',
+          template_for_new,  #'users/new.html',
           user=user,
           errors=errors,
+          header=header,
+          placeholder=placeholder,
         )
     add_new_user(user)
     flash('New user '+ user['name'] + ' has been added', 'success')# 'success')#
@@ -184,9 +213,9 @@ def patch_user(id):
 def validate(user):
     errors = {}
     if not user['name']:
-       errors['name'] = "Can't be blank"
+       errors['name'] = "Name can't be blank"
     if len(user['email'])<11:
-       errors['email'] = "email must have more 10 simbols"
+       errors['email'] = "Email must have more 10 simbols"
     return errors
 
 def next_id():

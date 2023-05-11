@@ -218,5 +218,40 @@ background: #389E9E;
    font-size: 20px;
    text-align: center;
    color: #4B4646;
+}
 
+.message_warning {
+    display: flex;
+    height: 46px;
+    width: calc(100vw - 3px);
+    background: #CE7676;
+
+    font-family: "Inter Regular", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+/* Row table background */
+    color: #D9D9D9;
+    justify-content: space-evenly;
+}
+.x_btn_warning {
+
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    transform: rotate(45deg);
+    border: 0;
+/*  border-radius: 50%; */
+    color: #D9D9D9;
+    margin-left: 30px;
+    align-items: center;
+    text-align: center;
+
+}
+.x_btn_warning{
+    background: #CE7676;
 }

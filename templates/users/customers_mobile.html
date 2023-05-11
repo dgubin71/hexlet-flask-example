@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Customers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" href="{{url_for('static', filename ='customers_mobile.css')}}" rel="stylesheet">
+  </head>
+  <body>
+  <main_frame>
+
+  <div class="search_form">
+     <form action="{{url_for('users_new')}}" method = "get>">
+          <!--<input class="cross_add" type="submit"> -->
+          <input class="cross_add" type="image" src="{{ url_for('static', filename='add_btn.png')}}" alt="Add">
+      </form>
+     <form action="{{url_for('find_users')}}" method="get">
+          <label class="like_h1">CUSTOMERS</label>
+          <input class="search_field" type="search" name="term" value="{{ search }}">
+          <input class="search_btn" type="image" src="{{ url_for('static', filename='icon_search.png')}}" alt="Search">
+     </form>
+  </div>
+
+  <div class="scroll_section">
+
+{% block content %}
+
+{% endblock %}
+
+  </div>
+
+ <form action="{{ url_for('login_user' )}}" method="post">
+        <input  type="submit" value="logout">
+  </form>
+
+
+ </main_frame>
+</body>
+</html>

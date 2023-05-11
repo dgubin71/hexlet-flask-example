@@ -1,0 +1,18 @@
+{% extends 'users/customers_mobile.html' %}
+
+{% block content %}
+{% for name in names %}
+
+  <div class="row_table">
+     <div class = "first_section">
+          <a class = "id_style" href = "{{ name['id'] }}"><img src=" {{url_for('static', filename='iconUserEdit.png')}}"></a>
+     </div>
+     <div class = "second_section">
+
+         <label class = "name_style">{{name['name']}}</label>
+         <label class = "email_style">{{name['email']}}</label>
+
+     </div>
+  </div>
+{% endfor %}
+{% endblock %}
