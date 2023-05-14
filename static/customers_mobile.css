@@ -118,13 +118,19 @@ body {
 /*.id_style, .name_style, .email_style {} */
 .first_section {
      display: flex;
-     width: calc(100vw/5);
+     width: calc(100vw/3);
      height:75px;
      align-items: center;
      justify-content: center;
 }
+.photo{
+     width: 55px;
+     height:60px;
+     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+     border-radius: 10px;
+}
 .second_section {
-    width: 80%;
+    width: 75%;
     height:75px;
      align-items: center;
      justify-content: center;
@@ -148,6 +154,7 @@ body {
     align-items: center;
     justify-content: left;
     padding-left:20px;
+    text-decoration: none;
 
 
 
@@ -157,7 +164,9 @@ body {
     font-style: normal;
     font-weight: 700;
     font-size: 20px;
-
+}
+.name_style:visited{
+     color: #000000;
 }
 
 .email_style {

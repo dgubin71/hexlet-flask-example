@@ -11,12 +11,12 @@
   <div class="search_form">
      <form action="{{url_for('users_new')}}" method = "get>">
           <!--<input class="cross_add" type="submit"> -->
-          <input class="cross_add" type="image" src="{{ url_for('static', filename='add_btn.png')}}" alt="Add">
+          <input class="cross_add" type="image" src="{{ url_for('static', filename='images/add_btn.png')}}" alt="Add">
       </form>
      <form action="{{url_for('find_users')}}" method="get">
           <label class="like_h1">CUSTOMERS</label>
           <input class="search_field" type="search" name="term" value="{{ search }}">
-          <input class="search_btn" type="image" src="{{ url_for('static', filename='icon_search.png')}}" alt="Search">
+          <input class="search_btn" type="image" src="{{ url_for('static', filename='images/icon_search.png')}}" alt="Search">
      </form>
   </div>
 

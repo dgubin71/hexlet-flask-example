@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit castomer </title>
+    <link type="text/css" href="{{url_for('static', filename ='show_customer_mobile.css')}}" rel="stylesheet">
+</head>
+<body>
+    <div class="header">
+        <label class="like_h1">CUSTOMER</label>
+    </div>
+    <div class="main_frame">
+        <div  class="scroll_section">
+        <div class="photo_section">
+            {% set photo = "images/" + user.photo if user.photo !='' else 'images/person.png' %}
+             <img class="photo" src="{{ url_for('static', filename=photo) }}" alt="photo">
+        </div>
+        <div class="name_section">
+           <label class="customer_name">Name</label>
+           <label class="h2_name">{{ user.name }}</label>
+        </div>
+        <div class="birthday_section">
+            <label class="birthday">Birthday</label>
+            <label class="date">{{ user.birthday }}</label>
+        </div>
+        <div class="email_section">
+          <img class="email_img" src="{{ url_for('static', filename='images/email.png') }}" alt="email pict">
+          <label class="customer_email">{{ user.email }}</label>
+       </div>
+        <div class="phone_section">
+         <label class="phone_img"><img src="{{ url_for('static', filename='images/phone.png') }}" alt="phone pict"></label>
+         <label class="phone">{{ user.phone }}</label>
+       </div>
+       <div class="address_section">
+           <label class="address"> Address:</label>
+           <textarea class="text_address">{{ user.address }}</textarea>
+       </div>
+       <div class="controls">
+         <a class ="edit_img" href = "{{url_for('users_for_update', id = user['id'])}}"> <img src="{{ url_for('static', filename='images/user_edit.png') }}" alt="user edit pict"></a>
+         <a class ="trash_img" href = "{{url_for('users_for_delete', id = user['id'])}}"><img src="{{ url_for('static', filename='images/trash.png')}}" alt="trash pict">  </a></div>
+     </div>
+   </div>
+</body>
+
+

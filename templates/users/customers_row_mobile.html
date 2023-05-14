@@ -2,14 +2,18 @@
 
 {% block content %}
 {% for name in names %}
+   {% set filename = "images/" + name['photo'] if name['photo'] !='' else 'images/person.png' %}
 
   <div class="row_table">
-     <div class = "first_section">
-          <a class = "id_style" href = "{{ name['id'] }}"><img src=" {{url_for('static', filename='iconUserEdit.png')}}"></a>
-     </div>
-     <div class = "second_section">
+     <div class="first_section">
+         <img class = "photo"
+          src="{{ url_for('static',filename= filename) }}"
+          alt = "photo" >
 
-         <label class = "name_style">{{name['name']}}</label>
+     </div>
+
+     <div class = "second_section">
+         <a class = "name_style" href = "{{ name['id'] }}"> {{name['name']}}</a>
          <label class = "email_style">{{name['email']}}</label>
 
      </div>

@@ -77,9 +77,16 @@ def users(id):
 
     users = json.load(open('templates/users/users.json'))
     user = next(filter(lambda s: s['id'] == int(id), users))
+    ua_string = request.headers.get('User-Agent')  # получаем строку user agent
+    user_agent = parse(ua_string)
+    if user_agent.is_mobile:
+        template_for_show_user = 'users/show_customer_mobile.html'  # используем шаблон для мобильного
+    else:
+        template_for_show_user = 'users/show.html'  # используем шаблон для десктопа
+
 
     return render_template(
-        'users/show.html',
+        template_for_show_user, #'users/show.html',
         #'users/show_mobile.html',
 
          user = user,
@@ -172,8 +179,17 @@ def users_for_update(id):
     errors = {}
     users = json.load(open('templates/users/users.json'))
     user = next(filter(lambda s: s['id'] == int(id), users))
+    ua_string = request.headers.get('User-Agent')  # получаем строку user agent
+    user_agent = parse(ua_string)
+    header = "NEW CUSTOMER"
+    placeholder = {'name': 'NAME',
+                   'email': 'EMAIL for@example.com'}
+    if user_agent.is_mobile:
+        template_for_update= 'users/update_customer_mobile.html'  # используем шаблон для мобильного
+    else:
+        template_for_update = 'users/update.html'  # используем шаблон для десктопа
     return render_template(
-        'users/update.html',
+        template_for_update , #'users/update.html',
         user=user,
         errors=errors,
     )

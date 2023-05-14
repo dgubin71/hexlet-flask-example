@@ -1,0 +1,339 @@
+/* show castomer_mobile */
+@font-face {
+	font-family: "Roboto Regular";
+	src: url("../fonts/Roboto-Regular.woff2");
+}
+
+@font-face {
+	font-family: "Inter Regular";
+	src: url("../fonts/Inter-Regular.ttf");
+}
+
+@font-face {
+	font-family: "Inter Bold";
+	src: url("../fonts/Inter-Bold.ttf");
+}
+body {
+    width: 100vw;
+    height: 100vh;
+    background: #767373;
+    justify-content: center;
+}
+
+.scroll_section{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 118px;
+    left: 0;
+    overflow-y: scroll;
+}
+
+
+.main_frame{
+    display: flex;
+    width: calc(100vw - 15px);
+    height: 900px;
+    left: 0px;
+    top: 118px;
+
+/* Row table background */
+    background: #D9D9D9;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+
+}
+
+
+.like_h1{
+    width: 144px;
+    height: 28px;
+
+
+    /* H1 Roboto */
+
+    font-family: "Roboto Regular",sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+/* Head H1 color */
+
+   color: #171A56;
+   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.header {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 118px;
+    left: 0px;
+    top: 0px;
+
+/* Magenta baground */
+
+   background: #2F808B;
+   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.photo_section{
+    position: absolute;
+    display: flex;
+    width: calc(100vw - 15px);
+    height: 220px;
+    top: 25px;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.photo {
+      box-sizing: border-box;
+      position: absolute;
+      width: 160px;
+      height: 200px;
+
+      border: 1px solid #C4BCBC;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 10px;
+}
+
+.name_section{
+    position: absolute;
+    top: 270px;
+    display: flex;
+    width: calc(100vw - 15px);
+    height: 40px;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.customer_name{
+   position:absolute;
+   left: 40px;
+   font-family: "Inter Regular", sans-serif;
+   font-style: normal;
+   font-weight: 400;
+   font-size: 24px;
+   display: flex;
+   align-items: flex-end;
+   text-align: center;
+   color: #000000;
+}
+
+.h2_name, .h2_name_input{
+   position: absolute;
+   width: calc(100vw - 170px);
+   height: 28px;
+   left: 145px;
+   top: 5px;
+
+   font-family: "Roboto Regular", sans-serif;
+   font-style: normal;
+   font-weight: 400;
+   font-size: 32px;
+   line-height: 28px;
+   display: flex;
+   align-items: center;
+   text-align: center;
+   color: #000000;
+}
+.h2_name_input{
+   background: #D9D9D9;
+   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+   border-radius: 10px;
+}
+
+.birthday_section{
+    position: absolute;
+    top: 330px;
+    display: flex;
+    width: calc(100vw - 15px);
+    height: 40px;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px;
+}
+.birthday {
+    position: absolute;
+    width: 69px;
+    height: 19px;
+    left: 40px;
+    font-family: "Inter Regular", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+}
+.date, .date_input {
+    position: absolute;
+    width: calc(100vw - 170px);
+    height: 28px;
+    left: 145px;
+/* table text */
+    font-family: "Inter Regular", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 19px;
+    display: flex;
+    align-items: flex-end;
+    text-align: center;
+    color: #000000;
+}
+
+.date_input {
+    background: #D9D9D9;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+.email_section{
+    position: absolute;
+    top: 390px;
+    display: flex;
+    width: calc(100vw - 15px);
+    height: 40px;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px;
+}
+.email_img {
+      position: absolute;
+      left: 40px;
+      width: 35px;
+      height: 19px;
+}
+
+.name_field {
+
+}
+
+.customer_email, .customer_email_input {
+   position: absolute;
+   left: 110px;
+   width: calc(100vw - 140px);
+   height: 28px;
+/* table text */
+   font-family: "Inter Regular", sans-serif;
+   font-style: normal;
+   font-weight: 400;
+   font-size: 20px;
+   display: flex;
+   align-items: flex-end;
+   text-align: center;
+   color: #000000;
+}
+
+.customer_email_input {
+   background: #D9D9D9;
+   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+   border-radius: 10px;
+}
+
+.phone_section{
+    position: absolute;
+    top: 470px;
+    display: flex;
+    width: calc(100vw - 15px);
+    height: 40px;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px;
+}
+
+.phone_img {
+     position: absolute;
+      left: 40px;
+      width: 19px;
+      height: 24px;
+
+}
+.phone,.phone_input {
+   position: absolute;
+   width: calc(100vw - 140px);
+   height: 28px;
+   left: 110px;
+   font-family: "Inter Regular",sans-serif;
+   font-style: normal;
+   font-weight: 400;
+   font-size: 28px;
+   line-height: 19px;
+   display: flex;
+   align-items: flex-end;
+   text-align: center;
+   color: #000000;
+}
+
+.phone_input {
+   background: #D9D9D9;
+   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+   border-radius: 10px;
+}
+
+.address_section {
+    position: absolute;
+    top: 540px;
+    display: flex;
+    width: calc(100vw - 15px);
+    height: 220px;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px;
+}
+
+.address {
+     position: absolute;
+     top: 0px;
+     left: 40px;
+     width: 100px;
+     height: 24px;
+     font-family: "Inter Regular", sans-serif;
+     font-style: normal;
+     font-weight: 400;
+     font-size: 24px;
+     display: flex;
+     align-items: flex-end;
+     text-align: center;
+     color: #000000;
+}
+.text_address{
+    position: absolute;
+    top: 30px;
+    left:40px;
+    width: calc(100vw - 65px);
+    height: 60px;
+    font-family: "Inter Regular",sans-serif;
+    box-sizing: border-box;
+    border: none;
+    background-color: #D9D9D9;
+    font-size: 16px;
+    resize: none;
+    text-align: left;
+}
+
+.edit_img {
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    width: 27px;
+    height: 25px;
+}
+
+.trash_img {
+    position: absolute;
+    top: 20px;
+    left: calc(100vw - 65px);
+
+    width: 23px;
+    height: 29px;
+}
