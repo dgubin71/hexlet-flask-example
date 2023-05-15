@@ -17,7 +17,7 @@
             {% set photo = "images/" + user.photo if user.photo !='' else 'images/person.png' %}
              <img class="photo" src="{{ url_for('static', filename=photo) }}" alt="photo">
              <input type="file" name="file" id="input__file" class="input input__file">
-             <label class="input__file-button" for="input__file">Выберите файл</label>
+             <label class="input__file-button" for="input__file">Выбери файл</label>
             <!-- <input class="photo_input" type="file" name="myphoto"> -->
         </div>
         <div class="name_section">
