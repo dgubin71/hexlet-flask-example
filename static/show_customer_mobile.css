@@ -102,6 +102,18 @@ body {
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       border-radius: 10px;
 }
+.input__file {
+      opacity: 0;
+      visibility: hidden;
+
+}
+.input__file-button{
+   display: flex;
+    width: 90px;
+    height: 35px;
+    background: #1bbc9b;
+    color: #fff;
+}
 
 .name_section{
     position: absolute;
