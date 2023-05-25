@@ -19,25 +19,27 @@ def index():
             flash('You connect as' + session['user'] + ' succes', 'success')
             return redirect(url_for("find_users"))
     else:
-        session['user'] = ""
-        user = {"name": "", "email":""}
-        placeholder = {"name": "LOGIN", "email":"PASSWORD"}
-        errors = ""
-        header = "Enter LOGIN & PASSWORD"
+
          #   получаем   user agent для определения типа браузера
         ua_string = request.headers.get('User-Agent')  # получаем строку user agent
         user_agent = parse(ua_string)
         if user_agent.is_mobile:
-              template_for_login = 'users/login_mobile.html'  # используем шаблон для мобильного
+            template_for_login = 'users/login_mobile.html'  # используем шаблон для мобильного
+            return render_template(template_for_login)
         else:
-               template_for_login = 'users/login.html'  # используем шаблон для десктопа
-        return render_template(
-        template_for_login,    #'users/login.html',
-        user=user,
-        header=header,
-        placeholder = placeholder,
-        errors=errors
-    )
+            session['user'] = ""
+            user = {"name": "", "email": ""}
+            placeholder = {"name": "LOGIN", "email": "PASSWORD"}
+            errors = ""
+            header = "Enter LOGIN & PASSWORD"
+            template_for_login = 'users/login.html'  # используем шаблон для десктопа
+            return render_template(
+            template_for_login,    #'users/login.html',
+            user=user,
+            header=header,
+            placeholder = placeholder,
+            errors=errors
+             )
 
 @app.post('/login')
 def login_user():
