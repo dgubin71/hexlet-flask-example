@@ -7,24 +7,29 @@
     <link type="text/css" href="{{url_for('static', filename ='login_mobile.css')}}" rel="stylesheet">
 </head>
 <body>
+<!--
   {% if errors != "" %}
     <div class="message_warning">
     <label>{{ errors }}</label>
     <form action="{{url_for('index')}}" method="get">
         <input class="x_btn_warning" type="submit" value="+">
     </form>
-</div>
+</div> -->
   {% endif %}
 <div class = "main_frame">
 <form action="{{ url_for('login_user') }}" method="post">
-
-    {% include "users/post_mobile.html" %}
-
-
-
-    <div class="footer">
-        <input class="btn_login" type="submit" value="Login">
-    </div>
+      <div class="logo">
+       <img src="{{ url_for('static', filename='images/customer-logo.png') }}" alt="logo">
+       </div>
+       <div class = "login">
+          <input class ="customer_name" type="text" name="name"  value="Guest">
+       </div>
+       <div class = "pwd">
+          <input class="customer_pwd" type="password" required name="password"  value="Guest">
+       </div>
+       <div class="button_sign_up" >
+            <input class="btn_login" type="submit" value="Sign UP">
+       </div>
 </form>
 
 </div>

@@ -20,206 +20,112 @@ body{
 /*    width: 320px; */
     width: 100vw;
     height: 568px;
-
-/* Back dark */
-
-background: #767373;
+    background: #1E3136;
+    justify-items: center;
+    padding: 0px;
+    margin: 0px;
 }
 .main_frame{
     position: relative;
     display: flex;
 /*    top: 250px;   */
-    top: calc(100vh/2 - 159px);
-    left: 0;
+    top: 0px;
+    left: 0px;
 /*    width: 320px; */
-    width: calc(100vw - 3px);
-    height: 318px;
+    width: c 100vw;
+    height: 568px;
+    margin: 0px;
 /* Background Main */
-    background: #C4BCBC;
-    border-radius: 10px;
+    background: linear-gradient(179.3deg, #217D92 13.85%, rgba(25, 177, 217, 0) 97.49%);
+    justify-items: center;
 }
 
-.header {
+.logo {
    position: absolute;
-/*   width: 320px;  */
-   width: calc(100vw - 3px);
-   height: 63px;
-   left: 0px;
-   top: 0px;
    display: flex;
-   align-items:center;
+   width: calc(100vw - 13px);
+   height: 240px;
+   top: 0px;
+   left:0 px;
    justify-content: center;
-   text-align: center;
-/* Magenta baground */
 
-   background: #2F808B;
-   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-   border-radius: 10px;
 }
-.like_h1{
-    /* Enter login & password */
-    position: absolute;
-    display: flex;
-    width: calc(100vw - 10px);
-    height: 28px;
-/* H1 Roboto */
-    font-family: "Roboto Regular",sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    justify-content: center;
-    text-align: center;
-/* Head H1 color */
-   color: #171A56;
-   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+img{
+   position: absolute;
+   width: 320px;
+   height: 240px;
+   justify: center;
+}
+.login {
+   position: absolute;
+   display: flex;
+   width: calc(100vw - 13px);
+   height: 47px;
+   top: 237px;
+   left:0 px;
+   justify-content: center;
+
 }
 .customer_name {
-    box-sizing: border-box;
+    display: flex;
     position: absolute;
-/*    width: 318px; */
-    width: calc(100vw - 3px);
-    height: 74px;
-    left: 0px;
-    top: 77px;
-/* Row table background */
+    width: 266px;
+    height: 47px;
+    text-align: center;
     background: #D9D9D9;
-/* Row table background */
-   border: 1px solid #D9D9D9;
-   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-   border-radius: 10px;
-}
+    font-family: "Inter Regular",sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;}
 
-
-.name_field {
-   box-sizing: border-box;
+.pwd {
    position: absolute;
-/*   width: 272px; */
-   width: calc(100vw - 46px);
-   height: 46px;
-   left: 15px;
-   top: calc(50% - 46px/2);
-   background: #D9D9D9;
-   /* Back dark */
-   border: 1px solid #767373;
-   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-   border-radius: 10px;
-
-/* Head H2 */
-   font-family: "Inter Regular",sans-serif;
-   font-style: normal;
-   font-weight: 700;
-   font-size: 20px;
-
-}
-.name_field::placeholder {
-
-   width: calc(100vw - 46px);
-   height: 24px;
-/* Head H2 */
-   font-family: "Inter Regular",sans-serif;
-   font-style: normal;
-   font-weight: 700;
-   font-size: 20px;
-   line-height: 24px;
    display: flex;
-   align-items: flex-end;
-   text-align: center;
-
-/* Back dark */
-
-   color: #767373;
-}
-.customer_email {
-   box-sizing: border-box;
-   position: absolute;
-/*   width: 318px; */
-   width: calc(100vw - 3px);
-   height: 74px;
-   left: 1px;
-   top: 166px;
-
-/* Row table background */
-   background: #D9D9D9;
-/* Row table background */
-   border: 1px solid #D9D9D9;
-   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-   border-radius: 10px;
-}
-.email_field{
-   box-sizing: border-box;
-   position: absolute;
-/*   width: 272px;  */
-   width: calc(100vw - 46px);
-   height: 46px;
-   left: 15px;
-   top: calc(50% - 46px/2);
-   background: #D9D9D9;
-/* Back dark */
-   border: 1px solid #767373;
-   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-   border-radius: 10px;
-   font-family: "Inter Regular",sans-serif;
-   font-style: normal;
-   font-weight: 400;
-   font-size: 16px;
-
-}
-.email_field::placeholder{
-
-   width: calc(100vw - 46px);
-   height: 19px;
-
-/* table text */
-
-   font-family: "Inter Regular",sans-serif;
-   font-style: normal;
-   font-weight: 400;
-   font-size: 20px;
-   display: flex;
-   align-items: flex-end;
-   text-align: center;
-/* Back dark */
-   color: #767373;
-}
-.footer {
-   position: absolute;
-/*   width: 320px; */
-   width: calc(100vw - 3px);
-   height: 63px;
-   left: 0;
-   top: 254px;
-
-   display: flex;
-   align-items:center;
+   width: calc(100vw - 13px);
+   height: 47px;
+   top: 305px;
+   left:0 px;
    justify-content: center;
 
-/* Magenta baground */
-   background: #2F808B;
-   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-   border-radius: 10px;
+
+}
+.customer_pwd {
+    display: flex;
+    position: absolute;
+    width: 266px;
+    height: 47px;
+    text-align: center;
+    background: #D9D9D9;
+    font-family: "Inter Regular",sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    }
+
+.button_sign_up {
+   position: absolute;
+   display: flex;
+   width: calc(100vw - 13px);
+   height: 47px;
+   top: 382px;
+   left:0 px;
+   justify-content: center;
+
 }
 .btn_login{
-   box-sizing: border-box;
-   position: relative;
-   width: 200px;
-   height: 42px;
-
+   position: absolute;
+   width: 174px;
+   height: 46px;
 /* Button background */
-background: #389E9E;
+   background-color: transparent;
+   border-radius: 10px;
 /* Button text */
-   border: 1px solid #4B4646;
-   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-   border-radius: 16px;
-
-/* Button text */
-
    font-family: "Inter Regular",sans-serif;
-   font-style: normal;
-   font-weight: 700;
+   font-weight: 400;
    font-size: 20px;
-   text-align: center;
-   color: #4B4646;
+   line-height: 24px;
 
+   color: #FFFFFF;
 }
 .message_warning {
     display: flex;

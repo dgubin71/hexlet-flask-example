@@ -41,28 +41,30 @@ def index():
 
 @app.post('/login')
 def login_user():
-    session.clear()
-    errors = ""
-    user = {}
-    login = request.form.get('email')
-    if check_login(login):
+     session.clear()
+     errors = ""
+     user = {}
+     login = request.form.get('password')
+     if check_login(login):
          session['user']=login
-         flash('login as '+ session['user'] +'  is succes', 'success')  # 'success')#
+         #flash('login as '+ session['user'] +'  is succes', 'success')  # 'success')#
          return redirect(url_for('find_users'), code=302)
-    else:
-        session['user'] = ""
-        user = {"name": "", "email": ""}
-        placeholder = {"name": "LOGIN", "email": "PASSWORD"}
-        errors = "Can't find login or password"
-        header = "Enter LOGIN & PASSWORD"
+     else:
+          session['user'] = ""
+          user = {"name": "", "email": ""}
+          placeholder = {"name": "LOGIN", "email": "PASSWORD"}
+          errors = "Can't find login or password"
+          header = "Enter LOGIN & PASSWORD"
+
         #   получаем   user agent для определения типа браузера
-        ua_string = request.headers.get('User-Agent')  # получаем строку user agent
-        user_agent = parse(ua_string)
-        if user_agent.is_mobile:
+     ua_string = request.headers.get('User-Agent')  # получаем строку user agent
+     user_agent = parse(ua_string)
+     if user_agent.is_mobile:
             template_for_login = 'users/login_mobile.html'  # используем шаблон для мобильного
-        else:
+     else:
             template_for_login = 'users/login.html'  # используем шаблон для десктопа
-        return render_template(
+
+     return render_template(
             template_for_login,  # 'users/login.html',
             user=user,
             header=header,
@@ -335,10 +337,11 @@ def delete_user(user):
     json.dump(users, users_file)
 
 def check_login(login):
-    users_file = open('templates/users/users.json', 'r')
-    users = json.load(users_file)
+
+    logins_file = open('templates/users/logins.json', 'r')
+    users = json.load(logins_file)
     for item_user in users:
-        if item_user['email'] == login:
+        if item_user['password'] == login:
             return True
     return False
 
