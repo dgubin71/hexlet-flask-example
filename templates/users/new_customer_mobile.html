@@ -8,14 +8,14 @@
 </head>
 <body>
     <div class="header">
-        <label class="like_h1">Edit CUSTOMER</label>
+        <label class="like_h1">Add CUSTOMER</label>
     </div>
     <div class="main_frame">
         <div  class="scroll_section">
          <div class="photo_section">
             {% set photo = "images/" + user.photo if user.photo !='' else 'images/person.png' %}
              <img  id="result" class="photo" src="{{ url_for('static', filename=photo) }}" alt="photo">
-             <form method=POST enctype=multipart/form-data action="{{ url_for('patch_user', id = user.id ) }}">
+             <form method=POST enctype=multipart/form-data action="{{ url_for('users_post') }}">
                <input type="file" name="file" class="input input__file" id="uploadImage">   <!--id="input__file" > -->
                <label class="input__file-button"  for="uploadImage"><img src="{{ url_for('static', filename='images/change_photo.png') }}" alt="change photo"></label>                                           <!--for="input__file">Выбери файл</label> -->
 

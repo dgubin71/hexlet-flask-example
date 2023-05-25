@@ -40,6 +40,7 @@
          <a class ="edit_img" href = "{{url_for('users_for_update', id = user['id'])}}"> <img src="{{ url_for('static', filename='images/user_edit.png') }}" alt="user edit pict"></a>
          <a class ="trash_img" href = "{{url_for('users_for_delete', id = user['id'])}}"><img src="{{ url_for('static', filename='images/trash.png')}}" alt="trash pict">  </a></div>
      </div>
+        {{messages}}
    </div>
 </body>
 

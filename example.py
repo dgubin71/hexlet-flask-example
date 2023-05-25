@@ -1,11 +1,15 @@
-import json
+import json, os
 from user_agents import parse
 from flask import Flask, render_template, request, redirect, url_for, flash, get_flashed_messages, session
-
+from werkzeug.utils import secure_filename
+from pathlib import Path
 
 # Это callable WSGI-приложение
 app = Flask(__name__, template_folder='templates')
+UPLOAD_FOLDER = 'static/images/'
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
 
 @app.route('/')
@@ -121,12 +125,17 @@ def users_new():
     ua_string = request.headers.get('User-Agent')  # получаем строку user agent
     user_agent = parse(ua_string)
     if user_agent.is_mobile:
-        template_for_new = 'users/new_mobile.html'  # используем шаблон для мобильного
+        template_for_new = 'users/new_customer_mobile.html'
     else:
         template_for_new = 'users/new.html'  # используем шаблон для десктопа
 
-    user = {'name': '',
-            'email': ''
+    user = {'id': 0,
+            'name': '',
+            'email': '',
+            'birthday': '',
+            'phone': '',
+            'address': '',
+            'photo':''
             }
     errors = {}
     header = "NEW CUSTOMER"
@@ -142,14 +151,37 @@ def users_new():
 
 @app.post('/users')
 def users_post():
+    filename = ""
+    file = request.files['file']
+    # Если файл не выбран, то браузер может
+    # отправить пустой файл без имени.
+    if file.filename != '':
+
+        if file and allowed_file(file.filename):
+            # безопасно извлекаем оригинальное имя файла
+            filename = secure_filename(file.filename)
+            # сохраняем файл
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        else:
+            flash("Can't save  insecure file")
+            return redirect(url_for('find_users'), code=302)
     new_user_id = next_id()
     user = {'id': '',
-             'name': '',
-            'email': ''
+            'name': '',
+            'email': '',
+            'birthday': '',
+            'phone': '',
+            'address': '',
+            'photo':''
             }
     user['id'] = new_user_id
     user['name'] = request.form.get('name')
     user['email'] = request.form.get('email')
+    user['birthday'] = request.form.get('birthday')
+    user['phone'] = request.form.get('phone')
+    user['address'] = request.form.get('address')
+    user['photo'] = filename
+
     errors = validate(user)
 
     if errors:
@@ -159,7 +191,7 @@ def users_post():
         placeholder = {'name': 'NAME',
                        'email': 'EMAIL for@example.com'}
         if user_agent.is_mobile:
-            template_for_new = 'users/new_mobile.html'  # используем шаблон для мобильного
+            template_for_new = 'users/new_customer_mobile.html', #'users/new_mobile.html'  # используем шаблон для мобильного
         else:
             template_for_new = 'users/new.html'  # используем шаблон для десктопа
         return render_template(
@@ -202,26 +234,49 @@ def users_for_delete(id):
     flash('User has been deleted', 'warning')# 'success')#
     return redirect(url_for('find_users'), code=302)
 
-
 @app.post('/users/<int:id>')
 def patch_user(id):
+    filename = ""
+    file = request.files['file']
+    # Если файл не выбран, то браузер может
+    # отправить пустой файл без имени.
+    if file.filename != '':
+
+       if file and allowed_file(file.filename):
+           # безопасно извлекаем оригинальное имя файла
+           filename = secure_filename(file.filename)
+           # сохраняем файл
+           file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+       else:
+           flash("Can't save  insecure file")
+           return redirect(url_for('find_users'), code=302)
+
     user = {'id': '',
-             'name': '',
-            'email': ''
+            'name': '',
+            'email': '',
+            'birthday': '',
+            'phone': '',
+            'address': ''
             }
+
     user['id'] = id
     user['name'] = request.form.get('name')
     user['email'] = request.form.get('email')
+    user['birthday'] = request.form.get('birthday')
+    user['phone'] = request.form.get('phone')
+    user['address'] = request.form.get('address')
+    if  filename != "":
+        user.setdefault('photo',filename)
+    flash(user)  # 'success')#
     errors = validate(user)
 
     if errors:
         return render_template(
-          '/users/update.html',
+          'users/update_customer_mobile.html',
           user=user,
           errors=errors,
-        ), 422
+       ), 422
     edit_user(user)
-    flash('User   '+ user['name'] + ' has been updated', 'success')# 'success')#
     return redirect(url_for('find_users'), code=302)
 
 
@@ -268,6 +323,12 @@ def delete_user(user):
     id = user['id']
     for item_user in users:
         if item_user['id'] == id:
+            if item_user['photo'] != "":
+                file_photo = os.path.join(app.config['UPLOAD_FOLDER'], item_user['photo'])
+                if os.path.exists(file_photo):
+                     os.remove(file_photo)
+                else:
+                    flash("The photo file does not exist")
             users.pop(users.index(user))
             break
     users_file = open('templates/users/users.json', 'w')
@@ -280,3 +341,8 @@ def check_login(login):
         if item_user['email'] == login:
             return True
     return False
+
+def allowed_file(filename):
+    """ Функция проверки расширения файла """
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
