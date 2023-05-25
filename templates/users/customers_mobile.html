@@ -10,6 +10,9 @@
 
   <div class="search_form">
       {{messages[0]}}
+      <form action="{{ url_for('login_user' )}}" method="post">
+        <input class="exit" type="image" src="{{ url_for('static', filename='images/icon_exit.png')}}" alt="Add">
+      </form>
      <form action="{{url_for('users_new')}}" method = "get>">
           <!--<input class="cross_add" type="submit"> -->
           <input class="cross_add" type="image" src="{{ url_for('static', filename='images/add_btn.png')}}" alt="Add">
@@ -28,11 +31,6 @@
 {% endblock %}
 
   </div>
-
- <form action="{{ url_for('login_user' )}}" method="post">
-        <input  type="submit" value="logout">
-  </form>
-
 
  </main_frame>
 </body>
